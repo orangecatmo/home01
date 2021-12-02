@@ -1,0 +1,171 @@
+    body ,
+    html {
+        position: relative;
+        max-width: 640px;
+        min-height: 100vh;
+        margin: 0 auto;
+    }
+    /**通配符，代表全部元素、取消默认的外边距和内边距*/
+    * {
+        margin: 0;
+        padding: 0;
+        /* border-box (width = padding + border + 内容width ) height同理*/
+        box-sizing: border-box;
+    }
+
+    header {
+        /*定义为弹性盒子*/
+        display: flex;
+        /*弹性盒子专用属性，使盒子内的子盒f往左右两边对齐*/
+        justify-content: space-between;
+        /*背景颜色*/
+        background-color: #E8E8E8;
+        /* 内边距上下20px左右1Ѳpx */
+        padding: 20px 10px;
+        color: #7C7C7C;
+    }
+    .hd-left .hd-left-top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+    .hd-left .hd-left-top span:first-child {
+        font-size: 18px;
+    }
+
+    .hd-left .hd-left-top span:last-child {
+        font-size: 12px;
+        align-self: flex-end;
+    }
+
+    .hd-left .hd-left-bottom p {
+        font-size:23px;
+        /*文字加粗*/
+        font-weight: bold;
+        color: #7C7C7C;
+    }
+    .hd-right{
+        /*弹性盒子于盒子专用属性，flex-end 底部对齐*/
+        align-self: flex-end;
+        font-size: 12px;
+    }
+    .hd-right span {
+        margin: 0 10px;
+    }
+
+    /* main区域 */
+    main  {
+        display: flex;
+        /* 使得弹性盒子内子元素超过父盒子宽度，则运行换行显示 */
+        flex-wrap: wrap;
+        padding: 5% 10%;
+        justify-content: space-between;
+    }
+    main .box {
+        /* 行内弹性盒子 */
+        display: inline-flex;
+        /* 横向在最后面，也就是右边 */
+        justify-content: flex-end;
+        /* 竖向在最后面，也就是最下面 */
+        align-items: flex-end;
+        /* calc为计算属性，100% / 3 是一行放3个 - 24px 是他们之间的间距为24px */
+        /* 注意运算符左右两边需要留空 */
+        width: calc(100% / 3 - 24px);
+        height: 80px;
+        margin: 15px 0;
+        color: #fff;
+        font-size: 30px;
+        /* 溢出隐藏，当子内元素超出父盒子内容区域后自动隐藏 */
+        overflow: hidden;
+    }
+    main .box span {
+        /* span元素变化了，之间的过渡效果为0.5秒，这里可以直接不写0 */
+        transition: all .5s;
+    }
+    /* 当鼠标移入类名为box的盒子中时，box内的span元素文字变成80px */
+    main .box:hover span {
+        font-size: 80px;
+    }
+    main .box:first-child {
+        background-color: #A1D8DD;
+    }
+    main .box:nth-child(2) {
+        background-color: #BFA2C9;
+    }
+    main .box:nth-child(3) {
+        background-color: #E89CA0;
+    }
+    main .box:nth-child(4) {
+        background-color: #F8DAA6;
+    }
+    main .box:nth-child(5) {
+        background-color: #F5E554;
+    }
+    main .box:nth-child(6) {
+        background-color: #AFCB1E;
+    }
+    main .box:nth-child(7) {
+        background-color: #1D9B90;
+    }
+    main .box:nth-child(8) {
+        background-color: #BC2631;
+    }
+    main .box:nth-child(9) {
+        background-color: #CA673E;
+    }
+    main .box:nth-child(10) {
+        background-color: #DCB028;
+    }
+    main .box:nth-child(11) {
+        background-color: #AE846B;
+    }
+    main .box:nth-child(12) {
+        background-color: #5682BF;
+    }
+    /* main 区域结束 */
+
+
+    /* video */
+    .video {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        z-index: -1;
+        width: 100vh;
+        max-height: 640px;
+        height: 100vw;
+        /* pointer-events: none; */
+        opacity: 0;
+        transition: all .5s;
+        transform: translate(-50%,-50%) rotate(90deg);
+        transform-origin:center;
+        /* transform: rotate(90deg) translate(125px, 126px); */
+    }
+    .video video {
+        width: 100%;
+        max-height: 640px;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* footer 区域 */
+    footer {
+        /* 固定定位 */
+        position: absolute;
+        /* 距离底部 0 */
+        bottom: -35px;
+        /* 距离左边 50% */
+        left: 50%;
+        /* 往左边平移50% */
+        /* 故加上left 和 transform这两个就居中了 */
+        transform: translateX(-50%);
+        /* 宽度 100% */
+        width: 100%;
+        /* 文字行高 80px */
+        line-height: 80px;
+        text-align: center;
+        color: #7C7C7C;
+        background-color: #E8E8E8;
+        /* 最大宽度为640px */
+        max-width: 640px;
+    }

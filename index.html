@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+
+<body>
+    <!-- 语义化标签和divy一样，不同的是这三个标签具有语义化，看单词就知道这个标签代表什么部分-->
+    <header>
+        <div class="hd-left">
+            <div class="hd-left-top">
+
+                <span>日日是好日</span>
+                <span>火曜日</span>
+
+            </div>
+            <div class="hd-left-bottom">
+                <p>2021年10月5号</p>
+            </div>
+        </div>
+        <div class="hd-right">
+            <span>年间</span>
+            <span>祝日</span>
+        </div>
+    </header>
+    <main>
+        <div class="box"><span>1</span></div>
+        <div class="box"><span>2</span></div>
+        <div class="box"><span>3</span></div>
+        <div class="box"><span>4</span></div>
+        <div class="box"><span>5</span></div>
+        <div class="box"><span>6</span></div>
+        <div class="box"><span>7</span></div>
+        <div class="box"><span>8</span></div>
+        <div class="box"><span>9</span></div>
+        <div class="box"><span>10</span></div>
+        <div class="box"><span>11</span></div>
+        <div class="box"><span>12</span></div>
+    </main>
+    <div class="video">
+        <video src="" id="video" loop></video>
+    </div>
+    <footer>
+        <p>いい言葉</p>
+    </footer>
+    <script>
+        const boxs = document.querySelectorAll('.box')
+        const video = document.querySelector('#video')
+
+        for (let i = 0; i < boxs.length; i++) {
+            boxs[i].addEventListener('click', function () {
+                video.parentElement.style.zIndex = 9
+                video.parentElement.style.opacity = 1
+                video.src = './video/v' + (i + 1) + '.mp4'
+                video.play()
+            })
+        }
+
+        video.addEventListener('click', function () {
+            this.src = ""
+            this.parentElement.style.zIndex = -1
+            this.parentElement.style.opacity = 0
+        })
+    </script>
+</body>
+
+</html>
